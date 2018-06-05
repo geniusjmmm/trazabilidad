@@ -17,11 +17,14 @@
         }
         $consulta="SELECT * FROM computador";
         $recordset=mysqli_query($conexion,$consulta);
-        $registros=mysqli_fetch_row($recordset);
-        echo $registros[0];
-
+        while ($registros=mysqli_fetch_row($recordset)){
+            echo $registros[0] ." ";
+            echo $registros[1] ." ";
+            echo $registros[2] ." <br>";
+        }
     ?>
 
     <h1>prueba</h1>
+    <h1> hola  <h1>
 </body>
 </html>
