@@ -6,16 +6,19 @@
 </head>
 <body>
     <?php
-        $db_host="localhost";
+        $parametro=$_GET["texto"];
+                $db_host="localhost";
         $db_name="trazabilidad";
         $db_user="root";
         $db_password="";
 
         $conexion=mysqli_connect($db_host,$db_user,$db_password,$db_name);
+        
         IF (mysqli_connect_errno()){
             echo "Error al conectar";
         }
-        $consulta="SELECT * FROM computador";
+        mysqli_set_charset($conexion,"utf8");
+        $consulta="SELECT * FROM productos where NOMBREARTÍCULO LIKE '%$parametro%'";
         $recordset=mysqli_query($conexion,$consulta);
         while ($registros=mysqli_fetch_row($recordset)){
             echo $registros[0] ." ";
@@ -24,7 +27,7 @@
         }
     ?>
 
-    <h1>prueba</h1>
-    <h1> hola  <h1>
+    
+
 </body>
 </html>
